@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENTRAR</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body>
+    <header class="cabecalho">
+        <nav class="cabecalho_menu">
+            <a href="{{ url_for('home') }}" class="cabecalho_menu_logo"><strong class="logo">RED</strong>DEVS</a>
+            <div class="cabecalho_menu_link">
+                <a href="{{ url_for('home') }}" class="cabecalho_menu_link_link">HOME</a>
+                <a href="{{ url_for('portfolio') }}" class="cabecalho_menu_link_link">PORTFOLIO</a>
+                <a href="{{ url_for('home') }}" class="cabecalho_menu_link_link">QUEM SOMOS</a>
+                <a href="{{ url_for('home') }}" class="cabecalho_menu_link_link">DEPOIMENTOS</a>
+                <a href="{{ url_for('home') }}" class="cabecalho_menu_link_link">PROJETO</a>
+                <a href="{{ url_for('home') }}" class="cabecalho_menu_link_link">INFORMAÇÕES</a>
+            </div>
+            <div class="cabecalho_menu_div_cadastro">
+                <a href="{{ url_for('login_admin') }}" class="cabecalho_menu_login">ENTRAR</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="entrar">
+            <h1>ENTRAR</h1>
+        </div>
+
+        <form action="{{ url_for('login_admin') }}" method="post">
+            <div class="email">
+                <input type="email" name="email" placeholder="Digite o email" required>
+            </div>
+
+            <button type="submit" class="butao">
+                Login
+            </button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cadastro.css') }}">
+</head>
+<body>
+    <header class="cabecalho">
+        <nav class="cabecalho_menu">
+            <a href="{{ url_for('home') }}" class="cabecalho_menu_logo"><strong class="logo">RED</strong>DEVS</a>
+            <div class="cabecalho_menu_link">
+                <a href="{{ url_for('home') }}#inicio_pagina" class="cabecalho_menu_link_link">HOME</a>
+                <a href="{{ url_for('home') }}#quem_somos" class="cabecalho_menu_link_link">QUEM SOMOS</a>
+                <a href="{{ url_for('home') }}#depoimentos" class="cabecalho_menu_link_link">DEPOIMENTOS</a>
+                <a href="{{ url_for('portfolio') }}" class="cabecalho_menu_link_link">PORTFOLIO</a>
+                <a href="{{ url_for('home') }}#informacoes" class="cabecalho_menu_link_link">INFORMAÇÕES</a>
+            </div>
+            <div class="cabecalho_menu_div_cadastro">
+                <a href="{{ url_for('login') }}" class="cabecalho_menu_login">LOGIN</a>
+                <a href="{{ url_for('cadastro') }}" class="cabecalho_menu_cadastro">CADASTRO</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="bemvindo">
+            <h1 class="informacoes_titulo">INSTRUÇÕES DE CADASTRO</h1> 
+            <strong>Nome da Empresa:</strong> <br> Informe o nome da sua empresa para identificá-la no sistema.</br><br>
+            <strong>Área de Atuação:</strong> <br> Especifique a área em que sua empresa atua, como tecnologia, saúde, educação, entre outros.</br><br>
+            <strong>E-mail:</strong> <br> Forneça um e-mail válido para receber notificações e atualizações.</br><br>
+            <strong>Linguagens/Ferramentas:</strong> <br> Liste as linguagens de programação e ferramentas que sua empresa utiliza.</br><br>
+            <strong>Frameworks:</strong> <br> Informe os frameworks que fazem parte do seu processo de desenvolvimento.</br><br>
+            <strong>Descrição do Pedido:</strong> <br> Detalhe o serviço ou funcionalidade que deseja solicitar, explicando suas necessidades.
+        </div>
+
+        <div class="cadastro">
+            <h1>CADASTRO</h1>
+            <form action="{{ url_for('cadastro') }}" method="POST" enctype="multipart/form-data">
+                <input type="text" name="nome" placeholder="Nome da empresa" required>
+                <textarea name="area" placeholder="Área da atuação" required></textarea>
+                <input type="email" name="email" placeholder="Email" required>
+                <textarea name="linguagem" placeholder="Linguagens/Ferramentas" required></textarea>
+                <textarea name="frameworks" placeholder="Frameworks" required></textarea>
+                <textarea class="desafio" name="desafio" placeholder="Descreva seu desafio" required></textarea>
+                <input type="file" id="arquivo" name="arquivo" multiple>
+                <label for="arquivo">Escolher arquivo (Opcional)</label>
+                <div id="lista-arquivos"></div>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/cadastro.js') }}"></script>
+</body>
+</html>

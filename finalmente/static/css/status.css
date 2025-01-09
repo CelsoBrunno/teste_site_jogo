@@ -1,0 +1,192 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+p, a{
+    color: black;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.cabecalho {
+    background-color: #151819;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    max-height: 47px;
+}
+
+.cabecalho_menu {
+    padding: 14px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cabecalho_menu_logo{
+    text-decoration: none;
+    color: white;
+    padding: 0;
+    font-size: 1,225rem;
+}
+
+.logo {
+    color: #30ded5;
+}
+
+.cabecalho_menu_link{
+    display: flex;
+    text-align: center;
+    margin-left: 113px;
+    gap: 27px;
+    
+}
+
+.cabecalho_menu_link_link{
+    text-decoration: none;
+    color: white;
+    font-family:'Franklin Gothic Medium';
+    font-size: 0,84375rem;
+    
+}
+
+/* .cabecalho_menu_link_link.hover{
+    
+} */
+
+.cabecalho_menu_login{
+    text-decoration: none;
+    color: white;
+    margin-left: 169px;
+    text-align: center;
+    font-size: 0,84375rem;
+    font-family:'Franklin Gothic Medium';
+}
+
+.cabecalho_menu_cadastro{
+    text-decoration: none;
+    color: black;
+    background-color: #30ded5;
+    border-radius: 4px;
+    padding: 7px;
+    margin-left: 4px;
+    font-size: 0,84375rem;
+    font-family:'Franklin Gothic Medium';
+}
+
+.conteudo-principal{
+    height: 100vh;
+    background-image:url(/static/img/bk.png);
+    background-size: cover;
+    background-position: center center; 
+    background-attachment: fixed; 
+    background-repeat: no-repeat; 
+    margin-top: 47px; 
+    display: flex;   
+    flex-direction: column;
+    gap: 50px;
+}
+
+.titulo-status{
+    color: black;
+    font-size: 42px;
+    display: flex;
+    justify-content: center;
+}
+
+.div-text-nome{
+    margin-left: 156px;
+}
+
+.text-nome{
+    color: #000;
+    font-size: 22px;
+}
+
+.div-status{
+    display: flex;
+    align-items: center;
+    gap: 70px;
+    margin-left: 156px;
+}
+
+.div-bt-aceita-exclui{
+    display: flex;
+    gap: 12px;
+}
+
+.text-status{
+    color: #000;
+    font-size: 22px;
+}
+
+
+.bt-excluir{
+    height: 49.8px;
+    width: 137.7px;
+    border-radius: 12px ;
+    background-color: #ff3131 ;
+    border: none;
+    color: #fff;
+
+}
+.bt-aceitar{
+    height: 49.8px;
+    width: 137.7px;
+    font-size: 13.3px;
+    border-radius: 12px ;
+    background-color: #e3e3e3 ;
+    border: none;
+    color: #151819;
+
+}
+
+.div-info{
+    margin-left: 156px;
+}
+
+.info-pedido{
+    color: #000;
+    font-size: 22px;
+}
+
+.bt-baixar-arquivo{
+    height: 74.8px;
+    width: 343.2px;
+    border-radius: 29px;
+    font-size: 20px;
+    background-color: #0d2c7d;
+    color: #fff;
+    border: none;
+}
+
+.div-bt-ac-excl{
+    margin-left: 156px;
+
+}
+
+
+@media(max-width: 450px){
+
+    .conteudo-principal{
+        margin-top: 47px; 
+    }
+}
+
+.rodape{
+    position: relative;
+    background-color: #151819;
+    margin-top: auto;
+    color: white;
+    padding: 15px;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    left: 0;
+    bottom: 0;
+}

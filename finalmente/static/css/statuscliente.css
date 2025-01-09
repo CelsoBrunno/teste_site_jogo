@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+.cabecalho {
+    background-color: #151819;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    max-height: 47px;
+}
+
+.cabecalho_menu {
+    padding: 14px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cabecalho_menu_logo{
+    text-decoration: none;
+    color: white;
+    padding: 0;
+    font-size: 1,225rem;
+}
+
+.logo {
+    color: #30ded5;
+}
+
+.cabecalho_menu_link{
+    display: flex;
+    text-align: center;
+    margin-left: 113px;
+    gap: 27px;
+    
+}
+
+.cabecalho_menu_link_link{
+    text-decoration: none;
+    color: white;
+    font-family:'Franklin Gothic Medium';
+    font-size: 0,84375rem;
+    
+}
+
+/* .cabecalho_menu_link_link.hover{
+    
+} */
+
+.cabecalho_menu_login{
+    text-decoration: none;
+    color: white;
+    margin-left: 169px;
+    text-align: center;
+    font-size: 0,84375rem;
+    font-family:'Franklin Gothic Medium';
+}
+
+.cabecalho_menu_cadastro{
+    text-decoration: none;
+    color: black;
+    background-color: #30ded5;
+    border-radius: 4px;
+    padding: 7px;
+    margin-left: 4px;
+    font-size: 0,84375rem;
+    font-family:'Franklin Gothic Medium';
+}
+
+.sec-status{
+    height: 100vh;
+    background-image:url(/static/img/bk.png);
+    background-size: cover;
+    background-position: center center; 
+    background-attachment: fixed; 
+    background-repeat: no-repeat;  
+    display: flex;   
+    gap: 50px;
+}
+
+.div-principal-status{
+    margin-top: 13%;
+    margin-left: 156px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.titulo-{
+    color: #fff;
+    font-size: 22px;
+}
+
+.div-info-pedido{
+    height: 230.4px;
+    width: 450.6;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.text-info{
+    color: #fff;
+    font-size: 18px;
+}
+
+/* .grafico{
+    display: flex;
+    background-color: #30ded5;
+    height: 200.4px;
+    width: 200.4px;
+    border-radius: 115.2px;
+    margin-top: 13%;
+    margin-left: 150px;
+} */
+
+@media(max-width: 450px){
+
+    .sec-status{
+        margin-top: 47px; 
+    }
+}
+
+.rodape{
+    position: relative;
+    background-color: #151819;
+    margin-top: auto;
+    color: white;
+    padding: 15px;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    left: 0;
+    bottom: 0;
+}

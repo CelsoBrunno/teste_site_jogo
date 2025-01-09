@@ -1,0 +1,267 @@
+# from flask import Flask, jsonify, render_template, redirect, url_for, session, request
+# from googleapiclient.discovery import build
+# from googleapiclient.http import MediaFileUpload
+# from google.oauth2.service_account import Credentials
+# from mysql.connector import connect, Error
+
+# app = Flask(__name__)
+# app.secret_key = "chave_secreta"
+
+# # Configuração do Google Drive
+# SCOPES = ['https://www.googleapis.com/auth/drive.file']
+# SERVICE_ACCOUNT_FILE = 'credentials.json'
+
+# credentials = Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
+# drive_service = build('drive', 'v3', credentials=credentials)
+
+# # Configuração do banco de dados MySQL (Amazon RDS)
+# db_config = {
+#     'user': 'root',
+#     'password': 'Banco2024',
+#     'host': 'bancodb.ct628qm8yfig.us-east-2.rds.amazonaws.com',
+#     'port': '3306',
+#     'database': 'bdprojeto',
+# }
+
+# # Função para criar conexão com o banco
+# def create_connection():
+#     try:
+#         connection = connect(**db_config)
+#         return connection
+#     except Error as e:
+#         print(f"Erro ao conectar ao banco: {e}")
+#         return None
+
+# # Função para fechar conexão
+# def close_connection(connection):
+#     if connection:
+#         connection.close()
+
+# # Função para upload de arquivo para o Google Drive
+# def upload_to_drive(file):
+#     if file.filename.split(".")[-1].lower() != "pdf":  #['vitor','santos','pdf']
+#         raise ValueError("Apenas arquivos no formato PDF são permitidos.")
+#     file_path = f"/tmp/{file.filename}"  # Salva o arquivo temporariamente
+#     file.save(file_path)
+
+#     # Upload para o Google Drive
+#     file_metadata = {'name': file.filename}
+#     media = MediaFileUpload(file_path, mimetype='application/pdf')
+#     uploaded_file = drive_service.files().create(body=file_metadata, media_body=media, fields='id').execute()
+
+#     return f"https://drive.google.com/file/d/{uploaded_file.get('id')}"
+
+# Rota Login
+# @app.route("/login", methods=["GET", "POST"])
+# def login():
+#     if request.method == "POST":
+#         email = request.form["email"]
+
+#         # Conectando ao banco para verificar o email
+#         conn = get_db_connection()
+#         cursor = conn.cursor(dictionary=True)
+#         query = "SELECT * FROM empresas WHERE email_empresa = %s"
+#         cursor.execute(query, (email,))
+#         empresa = cursor.fetchone()
+
+#         if empresa:
+#             session["empresa"] = empresa["nome_empresa"]
+#             return redirect(url_for("status"))
+#         else:
+#             error_message = "Email não encontrado. Verifique e tente novamente."
+#             return render_template("login.html", error=error_message)
+
+#     return render_template("status.html")
+
+
+# Rota Status
+# @app.route("/status")
+# def status():
+    
+#     conn = get_db_connection()
+#     cursor = conn.cursor(dictionary=True)
+#     query = "SELECT status FROM empresas WHERE nome_empresa = %s"
+#     cursor.execute(query, (session["empresa"],))
+#     status_result = cursor.fetchone()
+#     status = status_result["status"] if status_result else "Desconhecido"
+#     return render_template("status.html", status=status)
+
+# #Rota Login
+# @app.route("/login", methods=["GET", "POST"])
+# def login():
+#     verificar_email 
+#     return 
+
+# from flask import Flask, jsonify, render_template, redirect, url_for, session, request
+# from db_connection import create_connection, close_connection
+
+# app = Flask(__name__)
+# app.secret_key = "chave_secreta"
+
+# # Função para verificar se o arquivo é PDF e fazer o upload
+# def upload_to_cloud(file):
+#     if file.filename.split(".")[-1].lower() != "pdf":
+#         raise ValueError("Apenas arquivos no formato PDF são permitidos.")
+#     # Simulação do upload. Substitua pelo serviço de nuvem (S3, Google Cloud, etc.)
+#     file_path = f"cloud_storage/{file.filename}"
+#     file.save(file_path)  # Salva localmente apenas como exemplo
+#     return file_path
+
+# @app.route("/admin")
+# def admin():
+#     if "empresa" in session:  # Verifica se a empresa está logada
+#         return render_template("admin.html")
+#     else:
+#         return redirect(url_for("login"))
+
+# # Rota de login
+# @app.route("/login", methods=["GET", "POST"])
+# def login():
+#     if request.method == "POST":
+#         email = request.form["email"]
+
+#         # Conectando ao banco para verificar o email
+#         connection = create_connection()
+#         if connection:
+#             try:
+#                 cursor = connection.cursor(dictionary=True)
+#                 query = "SELECT * FROM empresas WHERE email = %s"
+#                 cursor.execute(query, (email,))
+#                 empresa = cursor.fetchone()
+
+#                 if empresa:
+#                     session["empresa"] = empresa["nome"]
+#                     return redirect(url_for("admin"))
+#                 else:
+#                     error_message = "Email não encontrado. Verifique e tente novamente."
+#                     return render_template("login.html", error=error_message)
+#             except Exception as e:
+#                 return f"Erro ao consultar o banco de dados: {e}"
+#             finally:
+#                 close_connection(connection)
+#         else:
+#             return "Erro ao conectar ao banco de dados."
+
+#     return render_template("login.html")
+
+# @app.route("/logout", methods=["POST"])
+# def logout():
+#     session.pop("empresa", None)  # Remove a sessão da empresa
+#     return jsonify({"success": True})
+
+# # Rota para cadastro
+# @app.route("/cadastro", methods=["GET", "POST"])
+# def cadastro():
+#     if request.method == "POST":
+#         nome = request.form["nome"]
+#         email = request.form["email"]
+#         telefone = request.form["telefone"]
+#         area_atuacao = request.form["area_atuacao"]
+#         desafio = request.form["desafio"]
+#         linguagem = request.form["linguagem"]
+#         ferramentas = request.form["ferramentas"]
+
+#         # Lógica para verificar e lidar com o arquivo PDF
+#         file = request.files.get("desafio_file")
+#         if file:
+#             try:
+#                 desafio_path = upload_to_cloud(file)
+#             except ValueError as e:
+#                 return jsonify({"success": False, "error": str(e)})
+#         else:
+#             desafio_path = desafio  # Usa o texto do desafio, se nenhum arquivo for enviado
+
+#         # Conecta ao banco de dados e salva os dados
+#         connection = create_connection()
+#         if connection:
+#             try:
+#                 cursor = connection.cursor()
+#                 query = """INSERT INTO empresas (nome, email, telefone, area_atuacao, desafio, linguagem, ferramentas) 
+#                            VALUES (%s, %s, %s, %s, %s, %s, %s)"""
+#                 cursor.execute(query, (nome, email, telefone, area_atuacao, desafio_path, linguagem, ferramentas))
+#                 connection.commit()
+
+#                 return jsonify({"success": True})
+#             except Exception as e:
+#                 return jsonify({"success": False, "error": str(e)})
+#             finally:
+#                 close_connection(connection)
+#         else:
+#             return jsonify({"success": False, "error": "Erro ao conectar ao banco de dados."})
+
+#     return render_template("cadastro.html")
+
+# # Nova rota para verificar o desafio e status
+# @app.route("/verificar_desafio", methods=["GET"])
+# def verificar_desafio():
+#     email = request.args.get("email")  # Email fornecido pelo cliente
+#     if not email:
+#         return jsonify({"success": False, "error": "Email é obrigatório."})
+
+#     connection = create_connection()
+#     if connection:
+#         try:
+#             cursor = connection.cursor(dictionary=True)
+#             query = "SELECT desafio, area_atuacao FROM empresas WHERE email = %s"
+#             cursor.execute(query, (email,))
+#             resultado = cursor.fetchone()
+
+#             if resultado:
+#                 return jsonify({"success": True, "desafio": resultado["desafio"], "status": resultado["area_atuacao"]})
+#             else:
+#                 return jsonify({"success": False, "error": "Usuário não encontrado."})
+#         except Exception as e:
+#             return jsonify({"success": False, "error": str(e)})
+#         finally:
+#             close_connection(connection)
+#     else:
+#         return jsonify({"success": False, "error": "Erro ao conectar ao banco de dados."})
+
+# if __name__ == "_main_":
+#     app.run(debug=True)
+
+#Função para baixar arquivo
+#   empresa_id
+# @app.route("/download/<int:empresa_id>")
+# def download(empresa_id):
+#     conn = get_db_connection()
+#     cursor = conn.cursor(dictionary=True)
+#     query = "SELECT arquivo_pdf FROM empresas WHERE id = %s"
+#     cursor.execute(query, (empresa_id,))
+#     arquivo = cursor.fetchone()
+
+#     if arquivo and arquivo["arquivo_pdf"]:
+#         pdf_data = arquivo["arquivo_pdf"]
+#         pdf_stream = io.BytesIO(pdf_data)
+#         return send_file(pdf_stream, as_attachment=True, download_name="arquivo.pdf", mimetype="application/pdf")
+#     return "Arquivo não encontrado.", 404
+
+#@app.route("/download")
+# def download(id, desktop_path):
+#     """Busca o arquivo BLOB no banco e salva como PDF na área de trabalho."""
+#     try:
+#         conn = get_db_connection()
+#         cursor = conn.cursor()
+
+#         # Consulta para buscar o arquivo pelo ID
+#         query = "SELECT arquivo_pdf, nome_empresa FROM empresas WHERE id_empresa = %s"
+#         cursor.execute(query, (id,))
+#         result = cursor.fetchone()
+
+#         if result:
+#             arquivo_binario, nome_empresa = result
+#             nome_arquivo = f"{nome_empresa}_{id}.pdf"
+#             caminho_arquivo = os.path.join(desktop_path, nome_arquivo)
+
+#             # Salvar o arquivo como PDF
+#             with open(caminho_arquivo, "wb") as file:
+#                 file.write(arquivo_binario)
+
+#             print(f"Arquivo salvo com sucesso na área de trabalho: {caminho_arquivo}")
+#         else:
+#             print(f"Nenhum arquivo encontrado para o ID {id}.")
+#     except Exception as e:
+#         print(f"Erro ao buscar ou salvar o arquivo: {str(e)}")
+#     finally:
+#         if conn:
+#             conn.close()

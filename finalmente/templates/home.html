@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RED DEVS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='img/icon.png') }}" type="image-x/png">
+</head>
+
+<body>
+    <header class="cabecalho">
+        <nav class="cabecalho_menu">
+            <a href="" class="cabecalho_menu_logo"><strong class="logo">RED</strong>DEVS</a>
+            <div class="cabecalho_menu_link">
+                <a href="{{ url_for('home') }}" class="cabecalho_menu_link_link">HOME</a>
+                <a href="{{ url_for('portfolio') }}" class="cabecalho_menu_link_link">PORTFOLIO</a>
+                <a href="#quem_somos" class="cabecalho_menu_link_link">QUEM SOMOS</a>
+                <a href="#depoimentos" class="cabecalho_menu_link_link">DEPOIMENTOS</a>
+                <a href="#objetivo" class="cabecalho_menu_link_link">PROJETO</a>
+                <a href="#informacoes" class="cabecalho_menu_link_link">INFORMAÇÕES</a>
+            </div>
+            <div class="cabecalho_menu_div_cadastro">
+                <a href="{{ url_for('login') }}" class="cabecalho_menu_login">ENTRAR</a>
+                <a href="{{ url_for('cadastro') }}" class="cabecalho_menu_cadastro">CADASTRO</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inicio_pagina" class="principal">
+            <h1 class="principal_titulo">NÓS O <strong class="desafiamos">DESAFIAMOS</strong><br> A NOS DESAFIAR</h1>
+            <div class="principal_botao">
+                <a href="{{ url_for('cadastro') }}" class="principal_botao_cadastro">CADASTRO</a>
+                <!-- <button class="principal_botao_saiba-mais">SAIBA MAIS</button> -->
+            </div>
+        </section>
+
+        <h1 id="quem_somos" class="cartoes_titulo">QUEM SOMOS</h1>
+       
+        <section class="cartoes">
+           
+            <div class="cartao1">
+                <div class="cartoes_quem-somos">
+                    <div class="cartoes_quem-somos_play-titulo">
+                        <img src="{{ url_for('static', filename='img/play.png') }}" alt="icone-play" class="cartoes_quem-somos_play">
+                        <h1 class="cartoes_quem-somos_titulo">QUEM SOMOS</h1>
+                    </div>
+                    <p class="cartoes_quem-somos_conteudo">Somos uma equipe apaixonada por inovação e tecnologia, dedicada a desenvolver soluções que transformam ideias em realidades digitais. Nosso foco é criar sistemas robustos, práticos e acessíveis, projetados para facilitar a vida de pessoas e empresas.</p>
+                    <p class="cartoes_quem-somos_conteudo">Com um compromisso contínuo com a qualidade, utilizamos as melhores práticas e ferramentas modernas para entregar resultados que atendam às expectativas e necessidades do mercado. Nossa visão é construir um futuro mais acessível e conectado para todos.</p>
+                </div>
+            </div>
+
+            <div class="cartao2">
+                <div class="cartoes_objetivo">
+                    <div class="cartoes_objetivo_objetivo-titulo">
+                        <img src="{{ url_for('static', filename='img/objetivo.png') }}" alt="icone objetivo" class="icone_objetivo">
+                        <h1 class="cartoes_objetivo_titulo">OBJETIVO</h1>
+                    </div>
+                    <p class="cartoes_objetivo_conteudo">Nosso principal objetivo é oferecer soluções acessíveis e de alta qualidade que facilitem o cotidiano das pessoas. Por meio da criação de sistemas e softwares inovadores, buscamos atender às necessidades práticas de nossos usuários, promovendo eficiência e acessibilidade tecnológica.</p>
+                    <p class="cartoes_objetivo_conteudo">Nosso compromisso é simplificar a experiência digital, oferecendo ferramentas intuitivas e funcionais, desenvolvidas para proporcionar um impacto positivo na rotina de nossos clientes.</p>
+                </div>
+            </div>
+
+            <div class="cartao3">
+                <div class="cartoes_projeto">
+                    <div class="cartoes_projeto_icon-titulo">
+                        <img src="{{ url_for('static', filename='img/ideias.png') }}" alt="icone ideias" class="icone_ideia">
+                        <h1 class="cartoes_projeto_titulo">PROJETO</h1>
+                    </div>
+                    <p class="cartoes_projeto_conteudo">O projeto REDDEVS nasceu da visão de democratizar o acesso a softwares de qualidade, proporcionando ferramentas acessíveis que ajudem as pessoas em suas tarefas diárias. Com uma abordagem centrada no usuário, desenvolvemos sistemas que aliam eficiência, design responsivo e facilidade de uso.</p>
+                    <p class="cartoes_projeto_conteudo">Cada solução é projetada para ser flexível e adaptável, permitindo que indivíduos e empresas aproveitem o melhor da tecnologia sem custos elevados. Mainzerr é mais do que um projeto: é uma iniciativa para transformar tecnologia em um recurso acessível e indispensável.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="depoimentos fade-in">
+            <h1 id="depoimentos" class="depoimentos_titulo">DEPOIMENTOS</h1>
+            <div class="carousel">
+                <div class="depoimentos_cartao active">
+                    <img src="/static/img/celso.jpg" alt="foto professor" class="depoimentos_cartao_foto">
+                    <h3 class="depoimentos_cartao_professor1">Instrutor Celso Brunno</h3>
+                    <p class="depoimentos_cartao_conteudo">"TURMA DO FRONT É MUITO FODA, JÁ A DO BACK PQP...NÃO FAZ POHA NENHUMA </BR>VOU PEDIR DEMISSÃO"</p>
+                </div>
+                <div class="depoimentos_cartao">
+                    <img src="/static/img/Cristiano-Ronaldo.jpg" alt="foto professor" class="depoimentos_cartao_foto">
+                    <h3 class="depoimentos_cartao_professor1">Instrutora Joseneusa Aguiar</h3>
+                    <p class="depoimentos_cartao_conteudo">Dar aula para a turma de Técnico em Informática de Sobradinho em 2024 foi uma experiência extremamente gratificante, desde as primeiras aulas eu fiquei encantada com a dedicação e o enorme potencial de cada um de vocês.
+                        Sou muito grata pela oportunidade de contribuir para o desenvolvimento do conhecimento de vocês na disciplina de Banco de Dados. Foi muito bom acompanhar o empenho de todos ao longo do desenvolvimento da disciplina.
+                        Desejo, do fundo do coração, que o futuro de vocês seja repleto de conquistas, realizações e muito sucesso. Acredito verdadeiramente no talento e na capacidade de cada um de vocês.
+                        Com admiração,
+                        Joseneuza Aguiar
+                        Instrutora de Banco de Dados</p>
+                </div>
+                <button class="prev">❮</button>
+                <button class="next">❯</button>
+            </div>
+          </section>
+
+        <section id="objetivo" class="objetivo">
+            <h1 class="objetivo_titulo">OBJETIVO DO PROJETO</h1>
+            <div class="objetivo_cartao">
+                <p class="objetivo_cartao_conteudo">O objetivo principal do projeto <strong>REDDEVS</strong> é fornecer soluções digitais acessíveis e funcionais, projetadas para simplificar o dia a dia de pessoas e empresas. Por meio da criação de softwares de alta qualidade, buscamos democratizar o acesso a ferramentas tecnológicas que auxiliem na realização de tarefas cotidianas de maneira eficiente e intuitiva.
+
+                    Nosso compromisso é criar uma plataforma que una inovação, acessibilidade e impacto positivo, transformando a experiência dos usuários ao oferecer serviços que aliam funcionalidade e custo-benefício. O <strong>REDDEVS</STRONG> visa ser um facilitador na vida de nossos clientes, promovendo tecnologia como um recurso acessível para todos.
+                </p>
+            </div>
+        </section>
+
+        <section id="informacoes" class="informacoes">
+            <h1 class="informacoes_titulo">INFORMAÇÕES DE CADASTRO</h1>
+            <div class="informacoes_cartao">
+                <p class="informacoes_cartao_conteudo"><strong>Nome da Empresa:</strong> Informe o nome da sua empresa para identificá-la no sistema.</br>
+                    <strong>Área de Atuação:</strong> Especifique a área em que sua empresa atua, como tecnologia, saúde, educação, entre outros.</br>
+                    <strong>E-mail:</strong> Forneça um e-mail válido para receber notificações e atualizações.</br>
+                    <strong>Linguagens/Ferramentas:</strong> Liste as linguagens de programação e ferramentas que sua empresa utiliza.</br>
+                    <strong>Frameworks:</strong> Informe os frameworks que fazem parte do seu processo de desenvolvimento.</br>
+                    <strong>Descrição do Pedido:</strong> Detalhe o serviço ou funcionalidade que deseja solicitar, explicando suas necessidades.</p>
+                 <!-- <button class="informacoes_cartao_botao">CADASTRE-SE AQUI</button> -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="rodape">© TODOS OS DIREITOS RESERVADOS PELA REDDEVS 2024</footer>
+
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+
+</body>
+</html>

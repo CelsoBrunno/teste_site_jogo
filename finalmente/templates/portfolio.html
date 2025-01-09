@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RED DEVS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <header class="cabecalho">
+        <nav class="cabecalho_menu">
+            <a href="{{ url_for('home') }}" class="cabecalho_menu_logo"><strong class="logo">RED</strong>DEVS</a>
+            <div class="cabecalho_menu_link">
+                <a href="{{ url_for('home') }}" class="cabecalho_menu_link_link">HOME</a>
+                <a href="{{ url_for('portfolio') }}" class="cabecalho_menu_link_link">PORTFOLIO</a>
+                <a href="{{ url_for('home') }}" class="cabecalho_menu_link_link">QUEM SOMOS</a>
+                <a href="{{ url_for('home') }}" class="cabecalho_menu_link_link">DEPOIMENTOS</a>
+                <a href="{{ url_for('home') }}" class="cabecalho_menu_link_link">PROJETO</a>
+                <a href="{{ url_for('home') }}" class="cabecalho_menu_link_link">INFORMAÇÕES</a>
+            </div>
+            <div class="cabecalho_menu_div_cadastro">
+                <a href="{{ url_for('login') }}" class="cabecalho_menu_login">ENTRAR</a>
+                <a href="{{ url_for('cadastro') }}" class="cabecalho_menu_cadastro">CADASTRO</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="nossa_equipe" class="texto_principal">
+            <h1 class="titulo_nossa_equipe">NOSSA&nbsp;EQUIPE</h1>    
+
+            <div class="container_imagens">
+                <div class="item">
+                    <a href="#front-end" class="imagem_link destino">
+                        <img src="{{ url_for('static', filename='img/front-end.png') }}" alt="imagem_link">
+                        <h2 class="titulo_imagem">FRONT-END</h2>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="#back-end" class="imagem_link destino">
+                        <img src="{{ url_for('static', filename='img/back-end.png') }}" alt="imagem_link">
+                        <h2 class="titulo_imagem">BACK-END</h2>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="#analise-requisitos" class="imagem_link destino">
+                        <img src="{{ url_for('static', filename='img/requisitos.png') }}" alt="imagem_link">
+                        <h2 class="titulo_imagem">ANÁLISE DE REQUISITOS</h2>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="#scrum" class="imagem_link destino">
+                        <img src="{{ url_for('static', filename='img/scrum.png') }}" alt="imagem_link">
+                        <h2 class="titulo_imagem">SCRUM</h2>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="front-end" class="grupo-front">
+            <h2 class="titulo_equipe_front">Equipe de Front-End</h2>
+            <p class="subtitulo_front">Responsáveis pela interface do site</p>
+            
+            <div class="carrossel_front">
+                <div class="container_carrossel_front">
+                    <div class="membro">
+                        <img src="{{ url_for('static', filename='img/tonhão.jpg') }}" alt="foto_pessoa_1_front" class="foto_membro">
+                        <div class="informacoes_membro">
+                            <p class="nome">Antônio José</p>
+                            <a href="https://github.com/usuario" target="_blank" class="link-portfolio">
+                                <img src="{{ url_for('static', filename='img/Github.png') }}" alt="link_portfolio" class="icone-link">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="membro">
+                        <img src="{{ url_for('static', filename='img/yo.jpg') }}" alt="foto_pessoa_2_front" class="foto_membro">
+                        <div class="informacoes_membro">
+                            <p class="nome">Henrique Martins</p>
+                            <a href="https://henriqu3mart1ns.github.io/porfolio/" target ="_blank" class="link-portfolio" rel="noopener">
+                                <img src="{{ url_for('static', filename='img/Github.png') }}" alt="link_portfolio" class="icone-link">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="membro">
+                        <img src="{{ url_for('static', filename='img/luiz.jpg') }}" alt="foto_pessoa_3_front" class="foto_membro">
+                        <div class="informacoes_membro">
+                            <p class="nome">Luiz Phelipe</p>
+                            <a href="https://github.com/usuario" target="_blank" class="link-portfolio" rel="noopener">
+                                <img src="{{ url_for('static', filename='img/Github.png') }}" alt="link_portfolio" class="icone-link">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="membro">
+                        <img src="{{ url_for('static', filename='img/marcus.jpg') }}" alt="foto_pessoa_4_front" class="foto_membro">
+                        <div class="informacoes_membro">
+                            <p class="nome">Marcus Vinícius</p>
+                            <a href="https://github.com/usuario" target="_blank" class="link-portfolio" rel="noopener">
+                                <img src="{{ url_for('static', filename='img/Github.png') }}" alt="link_portfolio" class="icone-link">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="membro">
+                        <img src="{{ url_for('static', filename='img/teteu.jpg') }}" alt="foto_pessoa_5_front" class="foto_membro">
+                        <div class="informacoes_membro">
+                            <p class="nome">Mateus Martins</p>
+                            <a href="https://teteu1001.github.io/PORTFOLIO/" target="_blank" class="link-portfolio" rel="noopener">
+                                <img src="{{ url_for('static', filename='img/Github.png') }}" alt="link_portfolio" class="icone-link">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="linguagens_ferramentas" class="linguagens_ferramentas">
+                <h2 class="titulo_linguagens_front">Linguagens e Ferramentas Utilizadas Pelo Front-End</h2>
+                <div class="container_linguagens">
+                    <img src="../static/img/ling.png" alt="Ferramenta" class="linguagem_imagem">
+                </div>
+            </div>
+        </section>
+
+        <section id="back-end" class="grupo-back">
+            <h2 class="titulo_equipe_back">Equipe de Back-End</h2>
+            <div class="carrossel">
+                <div class="container_carrossel">
+                    <div class="membro">
+                        <img src="{{ url_for('static', filename='img/Dé Dé Fala Mansa.jpg') }}" alt="foto_pessoa_1_back" class="foto_membro">
+                        <div class="informacoes_membro">
+                            <p class="nome">André Luiz</p>
+                            <a href="https://www.instagram.com/llm_andre/" target="_blank" class="link-portfolio" rel="noopener">
+                                <img src="{{ url_for('static', filename='img/Github.png') }}" alt="link_portfolio" class="icone-link">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="membro">
+                        <img src="{{ url_for('static', filename='img/gean.jpg') }}" alt="foto_pessoa_2_back" class="foto_membro">
+                        <div class="informacoes_membro">
+                            <p class="nome" >Gean Carlos</p>
+                            <a href="https://inotyu.github.io/yu/" target="_blank" class="link-portfolio"rel="noopener">
+                                <img src="{{ url_for('static', filename='img/Github.png') }}" alt="link_portfolio" class="icone-link">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="membro">
+                        <img src="{{ url_for('static', filename='img/marlon.jpg') }}" alt="foto_pessoa_3_back" class="foto_membro">
+                        <div class="informacoes_membro">
+                            <p class="nome">Marlon Dias</p>
+                            <a href="https://github.com/usuario" target="_blank" class="link-portfolio"rel="noopener">
+                                <img src="{{ url_for('static', filename='img/Github.png') }}" alt="link_portfolio" class="icone-link">
+                            </a>
+                        </div>
+                    </div>
+                    <div class ="membro">
+                        <img src="{{ url_for('static', filename='img/mychel.jpg') }}" alt="foto_pessoa_4_back" class="foto_membro">
+                        <div class="informacoes_membro">
+                            <p class="nome">Mychel Lucas</p>
+                            <a href="https://github.com/usuario" target="_blank" class="link-portfolio" rel="noopener">
+                                <img src="{{ url_for('static', filename='img/Github.png') }}" alt="link_portfolio" class="icone-link">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="membro">
+                        <img src="{{ url_for('static', filename='img/192 (Samu).jpg') }}" alt="foto_pessoa_5_back" class="foto_membro">
+                        <div class="informacoes_membro">
+                            <p class="nome">Samuel Pereira</p>
+                            <a href="https://github.com/usuario" target="_blank" class="link-portfolio" rel="noopener">
+                                <img src="{{ url_for('static', filename='img/Github.png') }}" alt="link_portfolio" class="icone-link">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="membro">
+                        <img src="{{ url_for('static', filename='img/thiagão.jpg') }}" alt="foto_pessoa_6_back" class="foto_membro">
+                        <div class="informacoes_membro">
+                            <p class="nome">Thiago Monsueth</p>
+                            <a href="https://github.com/usuario" target="_blank" class="link-portfolio" rel="noopener">
+                                <img src="{{ url_for('static', filename='img/Github.png') }}" alt="link_portfolio" class="icone-link">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="membro">
+                        <img src="{{ url_for('static', filename='img/vitor a.jpg') }}" alt="foto_pessoa_7_back" class="foto_membro">
+                        <div class="informacoes_membro">
+                            <p class="nome">Vitor Albuquerque</p>
+                            <a href="https://github.com/usuario" target="_blank" class="link-portfolio" rel="noopener">
+                                <img src="{{ url_for('static', filename='img/Github.png') }}" alt="link_portfolio" class="icone-link">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="linguagens_ferramentas" class="linguagens_ferramentas">
+                <h2 class="titulo_linguagens">Linguagens e Ferramentas Utilizadas Pelo Back-End</h2>
+                <div class="container_linguagens">
+                    <img src="../static/img/python.png" alt="Ferramenta" class="linguagem_imagem_py">
+                    <img src="../static/img/mysql.png" alt="Ferramenta2" class="linguagem_imagem_sql">
+                </div>
+            </div>
+        </section>
+
+        <section id="analise-requisitos" class="grupo-analise">
+            <h2 class="titulo_equipe_req">Equipe de Análise de Requisitos</h2>
+            <div class="carrossel_req">
+                <div class="container_carrossel_req">
+                    <div class="membro">
+                        <img src="{{ url_for('static', filename='img/gustavo.jpg') }}" alt="foto_pessoa_1_req" class="foto_membro">
+                        <div class="informacoes_membro">
+                            <p class="nome">Gustavo Rykellme</p>
+                            <a href="https://github.com/usuario" target="_blank" class="link-portfolio" rel="noopener">
+                                <img src="{{ url_for('static', filename='img/Github.png') }}" alt="link_portfolio" class="icone-link">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="membro">
+                        <img src="{{ url_for('static', filename='img/hytallo.jpg') }}" alt="foto_pessoa_2_req" class="foto_membro">
+                        <div class="informacoes_membro">
+                            <p class="nome">Hytallo Sá</p>
+                            <a href="https://github.com/usuario" target="_blank" class="link-portfolio" rel="noopener">
+                                <img src="{{ url_for('static', filename='img/Github.png') }}" alt="link_portfolio" class="icone-link">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="membro">
+                        <img src="{{ url_for('static', filename='img/vitor b.jpg') }}" alt="foto_pessoa_3_req" class="foto_membro">
+                        <div class="informacoes_membro">
+                            <p class="nome">Vitor de Bessa</p>
+                            <a href="https://github.com/VitorBessa" target="_blank" class="link-portfolio" rel="noopener">
+                                <img src="{{ url_for('static', filename='img/Github.png') }}" alt="link_portfolio" class="icone-link">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="membro">
+                        <img src="{{ url_for('static', filename='img/joao.jpg') }}" alt="foto_pessoa_4_req" class="foto_membro">
+                        <div class="informacoes_membro">
+                            <p class="nome">João Mateus</p>
+                            <a href="https://github.com/usuario" target="_blank" class="link-portfolio" rel="noopener">
+                                <img src="{{ url_for('static', filename='img/Github.png') }}" alt="link_portfolio" class="icone-link">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="scrum" class="grupo-scrum">
+            <h2 class="titulo_equipe_scrum">SCRUM MASTER</h2>
+            <div class="carrossel_srum">
+                <div class="container_carrossel_scrum">
+                    <div class="membro">
+                        <img src="{{ url_for('static', filename='img/biel delas.jpg') }}" alt="foto_pessoa_1_scrum" class="foto_membro">
+                        <div class="informacoes_membro">
+                            <p class="nome">Gabriel Ludovico</p>
+                            <a href="https://github.com/usuario" target="_blank" class="link-portfolio" rel="noopener">
+                                <img src="{{ url_for('static', filename='img/Github.png') }}" alt="link_portfolio" class="icone-link">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="titulo_frameworks">
+            <h2 class="titulo_frameworks_texto">FRAMEWORK UTILIZADO</h2>
+        </section>
+        <section class="frameworks">
+            <div class="framework">
+                <h2>Flask</h2>
+                <p>Flask é um framework web minimalista e leve para Python. Ele permite criar aplicações web de forma simples e rápida, sem impor uma estrutura rígida.</p>
+                <img src="{{ url_for('static', filename='img/flask.png') }}" alt="flask">
+            </div>
+        </section>
+
+        <section class="titulo_curso">
+            <h2 class="titulo_curso">CURSO</h2>
+        </section>
+        <section class="curso">
+            <div class="curso-info">
+                <h2>Técnico em Desenvolvimento de Sistemas</h2>
+                <p><strong>Carga Horária:</strong> 1.200 horas</p>
+                <p><strong>Início:</strong> 06/02/2024</p>
+                <p><strong>Término:</strong> ??/07/2025</p>
+            </div>
+            <div class="instituicao-logo">
+                <a href="https://www.df.senac.br" target="_blank" rel="noopener">
+                    <img src="{{ url_for('static', filename='img/icon.png') }}" alt="Logo do Senac" class="hover-image">
+                </a>
+            </div>
+        </section>
+        <section class="curso_professor">
+            <div class="curso-info">
+                <h2>Celso Brunno Rocha</h2>
+                <p><strong>Professor/Instrutor</strong></p>
+            </div>
+            <div class="instituicao-logo">
+                <a href="https://instagram.com/celsobrunno" target="_blank" rel="noopener">
+                    <img src="{{ url_for('static', filename='img/celso.jpg') }}" alt="foto do brunno" class="hover-image_2">
+                </a>
+            </div>
+        </section>
+        <section class="curso_professor">
+            <div class="curso-info">
+                <h2>Joseneusa Aguiar</h2>
+                <p><strong>Professora/Instrutora</strong></p>
+            </div>
+            <div class="instituicao-logo">
+                <a href="brunno" target="_blank" rel="noopener">
+                    <img src="{{ url_for('static', filename='img/celso.jpg') }}" alt="foto do brunno" class="hover-image_2">
+                </a>
+            </div>
+        </section>
+    </main>
+    <footer class="rodape">© TODOS OS DIREITOS RESERVADOS PELA REDDEVS 2024</footer>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
